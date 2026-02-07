@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-Script que proporciona estadísticas sobre los logs de Nginx en MongoDB
-"""
+""" 12. Log stats """
 from pymongo import MongoClient
 
 if __name__ == "__main__":
@@ -19,10 +17,10 @@ if __name__ == "__main__":
     
     for method in methods:
         count = nginx_collection.count_documents({"method": method})
-        
+      
         print(f"\tmethod {method}: {count}")
 
-   
+    
     status_check = nginx_collection.count_documents(
         {"method": "GET", "path": "/status"}
     )
